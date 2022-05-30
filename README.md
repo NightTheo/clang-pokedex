@@ -148,7 +148,7 @@ Salameche x3
     Capturé la première fois le 28 mai 2022
 ---
 Roucoule x1
-    Type Vent
+    Type Vol
     Découvert la 1ère fois le 27 mai 2022
     Capturé la première fois le 29 mai 2022
 ```
