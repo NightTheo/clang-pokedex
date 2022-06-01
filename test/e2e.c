@@ -1,5 +1,6 @@
 #include "../src/exposition/cli.h"
 #include <assert.h>
+#include "../test/test.h"
 
 
 void it_should_get_salameche();
@@ -22,10 +23,14 @@ void it_should_get_salameche() {
             "    Capturé la première fois le 28 mai 2022"
     );
 
-    assert(stringAreEquals(actualOutput, expectedOutput));
+    assert(assertEqualsPrimitiveString(
+            stringValue(expectedOutput),
+            stringValue(actualOutput)
+            ));
     freeString(actualOutput);
     freeString(expectedOutput);
 }
+
 
 void it_should_get_pikachu() {
     String actualOutput = cli("search pikachu");
@@ -36,7 +41,10 @@ void it_should_get_pikachu() {
             "Jamais capturé"
     );
 
-    assert(stringAreEquals(actualOutput, expectedOutput));
+    assert(assertEqualsPrimitiveString(
+            stringValue(expectedOutput),
+            stringValue(actualOutput)
+    ));
     freeString(actualOutput);
     freeString(expectedOutput);
 }

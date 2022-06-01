@@ -2,7 +2,9 @@
 #define CLANG_POKEDEX_POKEDEX_SERVICE_H
 
 #include "../infrastructure/string/string.utils.h"
+#include "../domain/pokemon.h"
 
-void searchPokemonByName(String name);
+Pokemon searchPokemonByName(String name);
+
 
 #endif //CLANG_POKEDEX_POKEDEX_SERVICE_H

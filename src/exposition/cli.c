@@ -1,14 +1,17 @@
 #include "cli.h"
-
-struct Cli {
-
-};
+#include "../application/pokedex.service.h"
+#include "adapter/cli.pokemon.adapter.h"
 
 String cli(char* input) {
-    return newString(
-            "Salameche x3\n"
-            "    Type Feu\n"
-            "    Découvert la 1ère fois le 28 mai 2022\n"
-            "    Capturé la première fois le 28 mai 2022"
-            );
+    String name = newString(input);
+    String pokemon = cliSearchPokemonByName(name);
+    freeString(name);
+    return pokemon;
+}
+
+String cliSearchPokemonByName(String name) {
+    Pokemon search = searchPokemonByName(name);
+    String response = adaptToCliPokemonResponse(search);
+    freePokemon(search);
+    return response;
 }

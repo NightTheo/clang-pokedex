@@ -6,12 +6,10 @@ void testValue();
 void testLength();
 void testStringsAreEquals();
 
-int main(int argc, char** argv) {
-
+int main() {
     testLength();
     testValue();
     testStringsAreEquals();
-
     return 0;
 }
 
@@ -33,4 +31,9 @@ void testStringsAreEquals() {
     assert(stringAreEquals(str1, str2));
     freeString(str1);
     freeString(str2);
+}
+
+void itShouldCreateEmptyStringWhenValueIsNull() {
+    // TODO
+    //String str = newString();
 }

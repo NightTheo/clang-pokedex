@@ -5,6 +5,9 @@
 #include <stdbool.h>
 
 typedef struct String* String;
+typedef struct StringUtils {
+    String (*newString)(char* value);
+} StringUtils;
 
 String newString(char* value);
 void freeString(String toFree);
