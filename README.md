@@ -1,5 +1,16 @@
 # clang-pokedex #
 
+## TODO ##
+
+- Renommer pokemon.h en pokemon_datasheet
+
+Idées d'amélioration
+- Faire des UseCases en CQS
+- Un builder de Pokemon
+- Avoir un adapter générique
+- Dans Pokemon, au lieu d'avoir un name de type String, avoir un type PokemonName
+
+
 ## Use cases ##
 
 ### Create ###

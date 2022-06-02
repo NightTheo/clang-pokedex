@@ -7,12 +7,14 @@ enum PokemonType {
 
 struct Pokemon {
     String name;
+    int numberCaptured;
     PokemonType type;
 };
 
-Pokemon newPokemon(String name) {
+Pokemon newPokemon(String name, int numberCaptured) {
     Pokemon p = malloc(sizeof(struct Pokemon));
     p->name = name;
+    p->numberCaptured = numberCaptured;
     p->type = Fire;
     return p;
 }
@@ -28,4 +30,8 @@ String getPokemonName(Pokemon pokemon) {
 
 PokemonType getPokemonType(Pokemon pokemon) {
     return pokemon->type;
+}
+
+int getNumberOfPokemonCapturedInPokemonDatasheet(Pokemon pokemon) {
+    return pokemon->numberCaptured;
 }

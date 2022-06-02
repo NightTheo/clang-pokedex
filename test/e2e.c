@@ -23,10 +23,10 @@ void it_should_get_salameche() {
             "    Capturé la première fois le 28 mai 2022"
     );
 
-    assert(assertEqualsPrimitiveString(
+    assert(assertExpectedStringEqualsActual(
             stringValue(expectedOutput),
             stringValue(actualOutput)
-            ));
+    ));
     freeString(actualOutput);
     freeString(expectedOutput);
 }
@@ -41,7 +41,7 @@ void it_should_get_pikachu() {
             "Jamais capturé"
     );
 
-    assert(assertEqualsPrimitiveString(
+    assert(assertExpectedStringEqualsActual(
             stringValue(expectedOutput),
             stringValue(actualOutput)
     ));

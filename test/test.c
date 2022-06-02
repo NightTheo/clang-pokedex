@@ -10,7 +10,7 @@ bool assertEqualsInt(int expected, int actual) {
     return expected == actual;
 }
 
-bool assertEqualsPrimitiveString(char* expected, char* actual) {
+bool assertExpectedStringEqualsActual(char* expected, char* actual) {
     if(strcmp(expected,actual) != 0) {
         printf("\nFAIL");
         printf("\nexpected: \n%s\n", expected);

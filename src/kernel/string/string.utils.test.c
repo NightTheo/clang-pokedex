@@ -15,7 +15,7 @@ int main() {
 
 void testValue(){
     String str = newString("abcd");
-    assert(assertEqualsPrimitiveString(stringValue(str), "abcd"));
+    assert(assertExpectedStringEqualsActual(stringValue(str), "abcd"));
     freeString(str);
 }
 

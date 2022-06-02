@@ -7,7 +7,7 @@ include(CTest)
 add_executable(clang_pokedex
         src/main.c
         src/exposition/cli.c src/exposition/cli.h
-        src/infrastructure/string/string.utils.c src/infrastructure/string/string.utils.h
+        src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         src/application/pokedex.service.c src/application/pokedex.service.h
         src/domain/pokemon.c src/domain/pokemon.h
         src/exposition/adapter/cli.pokemon.adapter.c src/exposition/adapter/cli.pokemon.adapter.h
@@ -20,7 +20,7 @@ enable_testing()
 add_executable(clang_pokedex_e2e
         test/e2e.c
         src/exposition/cli.c src/exposition/cli.h
-        src/infrastructure/string/string.utils.c src/infrastructure/string/string.utils.h
+        src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         test/test.c test/test.h
         src/domain/pokemon.c src/domain/pokemon.h
         src/application/pokedex.service.c src/application/pokedex.service.h
@@ -29,15 +29,17 @@ add_executable(clang_pokedex_e2e
 
 add_executable(
         string_utils_test
-        src/infrastructure/string/string.utils.test.c
+        src/kernel/string/string.utils.test.c
         test/test.c test/test.h
-        src/infrastructure/string/string.utils.c src/infrastructure/string/string.utils.h
+        src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         )
 add_test(NAME string_utils_test COMMAND $<TARGET_FILE:string_utils_test>)
 
 add_executable(
         cli_pokemon_adapter_test
-        src/infrastructure/string/string.utils.c src/infrastructure/string/string.utils.h
+        test/test.c test/test.h
+        src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         src/domain/pokemon.c src/domain/pokemon.h
+        src/exposition/adapter/cli.pokemon.adapter.h src/exposition/adapter/cli.pokemon.adapter.c
         src/exposition/adapter/cli.pokemon.adapter.test.c
 )
