@@ -4,15 +4,21 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef struct String* String;
-typedef struct StringUtils {
-    String (*newString)(char* value);
-} StringUtils;
+#define StringUtils struct _StringUtils _ = {newString, freeString};_
 
-String newString(char* value);
+typedef char* string;
+typedef struct String* String;
+struct _StringUtils {
+    String (*newString)(string value);
+    void (*freeString)(String str);
+};
+
+String newString(string value);
 void freeString(String toFree);
 char* stringValue(String string);
 int16_t stringLength(String string);
 bool stringAreEquals(String str1, String str2);
+
+
 
 #endif //CLANG_POKEDEX_STRING_UTILS_H

@@ -3,13 +3,14 @@
 ## TODO ##
 
 - Renommer pokemon.h en pokemon_datasheet
+- Avoir un builder pour ce PokemonDatasheet
+  - Parce que Les deux dates possiblement non nulles
 
 Idées d'amélioration
 - Faire des UseCases en CQS
-- Un builder de Pokemon
 - Avoir un adapter générique
-- Dans Pokemon, au lieu d'avoir un name de type String, avoir un type PokemonName
-
+- Types dans agréggat : PokemonName, FirstSeenDate, FistCaptureDate
+- Avoir un module de langue pour ne plus avoir de français dans l'adapter
 
 ## Use cases ##
 

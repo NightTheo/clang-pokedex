@@ -2,7 +2,7 @@
 #include "../application/pokedex.service.h"
 #include "adapter/cli.pokemon.adapter.h"
 
-String cli(char* input) {
+String cli(string input) {
     String name = newString(input);
     String pokemon = cliSearchPokemonByName(name);
     freeString(name);

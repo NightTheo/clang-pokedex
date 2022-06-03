@@ -11,7 +11,7 @@ add_executable(clang_pokedex
         src/application/pokedex.service.c src/application/pokedex.service.h
         src/domain/pokemon.c src/domain/pokemon.h
         src/exposition/adapter/cli.pokemon.adapter.c src/exposition/adapter/cli.pokemon.adapter.h
-        )
+        src/kernel/date/date.c src/kernel/date/date.h)
 
 
 # https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html#handling-a-large-number-of-tests
@@ -42,4 +42,5 @@ add_executable(
         src/domain/pokemon.c src/domain/pokemon.h
         src/exposition/adapter/cli.pokemon.adapter.h src/exposition/adapter/cli.pokemon.adapter.c
         src/exposition/adapter/cli.pokemon.adapter.test.c
-)
+        src/kernel/date/date.c src/kernel/date/date.h)
+add_test(NAME cli_pokemon_adapter_test COMMAND $<TARGET_FILE:cli_pokemon_adapter_test>)

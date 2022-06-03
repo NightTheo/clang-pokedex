@@ -5,11 +5,11 @@
 #include <string.h>
 
 struct String {
-    char* value;
+    string value;
     int16_t length;
 };
 
-String newString(char* value) {
+String newString(string value) {
     String string = malloc(sizeof(struct String));
     string->length = strlen(value);
     string->value = malloc(sizeof(char) * (string->length+1));
@@ -24,7 +24,7 @@ void freeString(String string) {
     string = NULL;
 }
 
-char* stringValue(String str) {
+string stringValue(String str) {
     return str->value;
 }
 

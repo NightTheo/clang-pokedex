@@ -4,7 +4,7 @@
 #include "../kernel/string/string.utils.h"
 #include "../domain/pokemon.h"
 
-String cli(char* input);
+String cli(string input);
 String cliSearchPokemonByName(String name);
 
 #endif //CLANG_POKEDEX_CLI_H
