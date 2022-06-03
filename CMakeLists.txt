@@ -25,6 +25,7 @@ add_executable(clang_pokedex_e2e
         src/domain/pokemon.c src/domain/pokemon.h
         src/application/pokedex.service.c src/application/pokedex.service.h
         src/exposition/adapter/cli.pokemon.adapter.c src/exposition/adapter/cli.pokemon.adapter.h
+        src/kernel/date/date.h src/kernel/date/date.c
         )
 
 add_executable(

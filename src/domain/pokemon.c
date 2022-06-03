@@ -6,24 +6,29 @@ struct Pokemon {
     int numberCaptured;
     PokemonType type;
     Date firstSeenDate;
+    Date firstCaptureDate;
 };
 
 Pokemon newPokemon(
         String name,
         int numberCaptured,
         PokemonType type,
-        Date firstSeenDate) {
+        Date firstSeenDate,
+        Date firstCaptureDate
+        ) {
     Pokemon p = malloc(sizeof(struct Pokemon));
     p->name = name;
     p->numberCaptured = numberCaptured;
     p->type = type;
     p->firstSeenDate = firstSeenDate;
+    p->firstCaptureDate = firstCaptureDate;
     return p;
 }
 
 void freePokemon(Pokemon pokemon) {
     freeString(pokemon->name);
     freeDate(pokemon->firstSeenDate);
+    freeDate(pokemon->firstCaptureDate);
     free(pokemon);
 }
 
@@ -41,4 +46,8 @@ int getNumberOfPokemonCapturedInPokemonDatasheet(Pokemon pokemon) {
 
 Date getFirstSeenDateInPokemonDatasheet(Pokemon pokemon) {
     return pokemon->firstSeenDate;
+}
+
+Date getFirstCaptureDateInPokemonDatasheet(Pokemon pokemon) {
+    return pokemon->firstCaptureDate;
 }

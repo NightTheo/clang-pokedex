@@ -9,6 +9,7 @@ void itShouldAdaptPikachu();
 void itShouldAdaptThreePikachu();
 void itShouldAdaptElectricPikachu();
 void itShouldAdaptSeenPikachu();
+void itShouldAdaptCapturedPikachu();
 
 int main() {
 
@@ -16,6 +17,7 @@ int main() {
     itShouldAdaptThreePikachu();
     itShouldAdaptElectricPikachu();
     itShouldAdaptSeenPikachu();
+    itShouldAdaptCapturedPikachu();
 
     return 0;
 }
@@ -25,14 +27,15 @@ void itShouldAdaptPikachu() {
             newString("Pikachu"),
             0,
             None,
+            NULL,
             NULL);
     String response = adaptToCliPokemonResponse(pikachu);
     assert(
             assertExpectedStringEqualsActual(
                     "Pikachu x0\n"
-                    "Type Inconnu\n"
-                    "Jamais découvert\n"
-                    "Jamais capturé",
+                    "    Type Inconnu\n"
+                    "    Jamais découvert\n"
+                    "    Jamais capturé\n",
                     stringValue(response)
             )
             );
@@ -45,15 +48,16 @@ void itShouldAdaptThreePikachu() {
             newString("Pikachu"),
             3,
             None,
+            NULL,
             NULL
     );
     String response = adaptToCliPokemonResponse(pikachu);
     assert(
             assertExpectedStringEqualsActual(
                     "Pikachu x3\n"
-                    "Type Inconnu\n"
-                    "Jamais découvert\n"
-                    "Jamais capturé",
+                    "    Type Inconnu\n"
+                    "    Jamais découvert\n"
+                    "    Jamais capturé\n",
                     stringValue(response)
             )
     );
@@ -66,15 +70,16 @@ void itShouldAdaptElectricPikachu() {
             newString("Pikachu"),
             3,
             Electric,
+            NULL,
             NULL
     );
     String response = adaptToCliPokemonResponse(pikachu);
     assert(
             assertExpectedStringEqualsActual(
                     "Pikachu x3\n"
-                    "Type Electrique\n"
-                    "Jamais découvert\n"
-                    "Jamais capturé",
+                    "    Type Electrique\n"
+                    "    Jamais découvert\n"
+                    "    Jamais capturé\n",
                     stringValue(response)
             )
     );
@@ -87,15 +92,38 @@ void itShouldAdaptSeenPikachu() {
             newString("Pikachu"),
             3,
             None,
+            newDate(2022, MAY, 27),
+            NULL
+    );
+    String response = adaptToCliPokemonResponse(pikachu);
+    assert(
+            assertExpectedStringEqualsActual(
+                    "Pikachu x3\n"
+                    "    Type Inconnu\n"
+                    "    Découvert la première fois le 27 mai 2022\n"
+                    "    Jamais capturé\n",
+                    stringValue(response)
+            )
+    );
+    freePokemon(pikachu);
+    freeString(response);
+}
+
+void itShouldAdaptCapturedPikachu() {
+    Pokemon pikachu = newPokemon(
+            newString("Pikachu"),
+            3,
+            None,
+            NULL,
             newDate(2022, MAY, 27)
     );
     String response = adaptToCliPokemonResponse(pikachu);
     assert(
             assertExpectedStringEqualsActual(
                     "Pikachu x3\n"
-                    "Type Inconnu\n"
-                    "Découvert la première fois le 27 mai 2022\n"
-                    "Jamais capturé",
+                    "    Type Inconnu\n"
+                    "    Jamais découvert\n"
+                    "    Capturé la première fois le 27 mai 2022\n",
                     stringValue(response)
             )
     );

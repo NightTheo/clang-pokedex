@@ -4,14 +4,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define StringUtils struct _StringUtils _ = {newString, freeString};_
-
 typedef char* string;
 typedef struct String* String;
-struct _StringUtils {
-    String (*newString)(string value);
-    void (*freeString)(String str);
-};
 
 String newString(string value);
 void freeString(String toFree);

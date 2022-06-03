@@ -12,11 +12,17 @@ typedef enum PokemonType{
     Electric
 } PokemonType;
 
-Pokemon newPokemon(String name, int numberCaptured, PokemonType type, Date firstSeenDate);
+Pokemon newPokemon(
+        String name,
+        int numberCaptured,
+        PokemonType type,
+        Date firstSeenDate,
+        Date firstCaptureDate);
 String getPokemonName(Pokemon pokemon);
 PokemonType getPokemonType(Pokemon pokemon);
 int getNumberOfPokemonCapturedInPokemonDatasheet(Pokemon pokemon);
 Date getFirstSeenDateInPokemonDatasheet(Pokemon pokemon);
+Date getFirstCaptureDateInPokemonDatasheet(Pokemon pokemon);
 
 void freePokemon(Pokemon pokemon);
 

@@ -3,31 +3,37 @@
 #include <string.h>
 #include <stdio.h>
 
-
+//___ private methods
 String pokemonTypeToString(PokemonType type);
 String adaptDateForCliPokemonResponse(Date pDate);
 String monthString(Month month);
-
 String adaptFirstSeenDateForCliPokemonResponse(Date firstSeenDate);
+String adaptFirstCaptureDateForCliPokemonResponse(Date firstCaptureDate);
+//___
+
 
 String adaptToCliPokemonResponse(Pokemon pokemon) {
     String type = pokemonTypeToString(getPokemonType(pokemon));
     String firstSeenDate = adaptFirstSeenDateForCliPokemonResponse(getFirstSeenDateInPokemonDatasheet(pokemon));
+    String firstCaptureDate = adaptFirstCaptureDateForCliPokemonResponse(getFirstCaptureDateInPokemonDatasheet(pokemon));
     string responseValue = malloc(sizeof(char) * 200);
     sprintf(responseValue,
             "%s x%d\n"
-            "Type %s\n"
-            "%s\n"
-            "Jamais capturé",
+            "    Type %s\n"
+            "    %s\n"
+            "    %s\n",
             stringValue(getPokemonName(pokemon)),
             getNumberOfPokemonCapturedInPokemonDatasheet(pokemon),
             stringValue(type),
-            stringValue(firstSeenDate)
+            stringValue(firstSeenDate),
+            stringValue(firstCaptureDate)
 
     );
     String res =  newString(responseValue);
     free(responseValue);
     freeString(type);
+    freeString(firstSeenDate);
+    freeString(firstCaptureDate);
     return res;
 }
 
@@ -35,12 +41,28 @@ String adaptFirstSeenDateForCliPokemonResponse(Date firstSeenDate) {
     if(NULL == firstSeenDate) return newString("Jamais découvert");
 
     String formatted = adaptDateForCliPokemonResponse(firstSeenDate);
-    string result = malloc(sizeof(char) * 50);
+    string adaptedValue = malloc(sizeof(char) * 50);
 
-    sprintf(result, "Découvert la première fois le %s", stringValue(formatted));
+    sprintf(adaptedValue, "Découvert la première fois le %s", stringValue(formatted));
 
     freeString(formatted);
-    return newString(result);
+    String adapted = newString(adaptedValue);
+    free(adaptedValue);
+    return adapted;
+}
+
+String adaptFirstCaptureDateForCliPokemonResponse(Date firstCaptureDate) {
+    if(NULL == firstCaptureDate) return newString("Jamais capturé");
+
+    String formatted = adaptDateForCliPokemonResponse(firstCaptureDate);
+    string resultValue = malloc(sizeof(char) * 50);
+
+    sprintf(resultValue, "Capturé la première fois le %s", stringValue(formatted));
+
+    freeString(formatted);
+    String result = newString(resultValue);
+    free(resultValue);
+    return result;
 }
 
 /**
@@ -59,7 +81,9 @@ String adaptDateForCliPokemonResponse(Date date) {
             getYearOf(date));
 
     freeString(month);
-    return newString(formatted);
+    String result = newString(formatted);
+    free(formatted);
+    return result;
 }
 
 String monthString(Month month) {
