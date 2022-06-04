@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#define STRING_MAX_LENGTH 8192 //2^13
+
 typedef char* string;
 typedef struct String* String;
 
@@ -12,6 +14,8 @@ void freeString(String toFree);
 char* stringValue(String string);
 int16_t stringLength(String string);
 bool stringAreEquals(String str1, String str2);
+bool isStringEmpty(String str);
+String newFormattedString(String format, ...);
 
 
 

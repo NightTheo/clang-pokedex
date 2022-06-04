@@ -4,7 +4,7 @@
 
 - Renommer pokemon.h en pokemon_datasheet
 - Avoir un builder pour ce PokemonDatasheet
-  - Parce que Les deux dates possiblement non nulles
+  - Parce que Les deux dates possiblement nulles
 
 Idées d'amélioration
 - Faire des UseCases en CQS

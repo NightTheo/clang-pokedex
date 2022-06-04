@@ -1,16 +1,24 @@
 #include <assert.h>
 #include "string.utils.h"
+#include <stdlib.h>
 #include "../../../test/test.h"
 
 void testValue();
 void testLength();
 void testStringsAreEquals();
+void itShouldCreateEmptyStringWhenValueIsNull();
+void isShouldCheckIfEmptyString();
+void isShouldCreateFormattedString();
 
 int main() {
     testLength();
     testValue();
     testStringsAreEquals();
-    return 0;
+    itShouldCreateEmptyStringWhenValueIsNull();
+    isShouldCheckIfEmptyString();
+    isShouldCreateFormattedString();
+
+    return EXIT_SUCCESS;
 }
 
 void testValue(){
@@ -34,6 +42,28 @@ void testStringsAreEquals() {
 }
 
 void itShouldCreateEmptyStringWhenValueIsNull() {
-    // TODO
-    //String str = newString();
+    String str = newString(NULL);
+    assert(assertExpectedStringEqualsActual(
+            "",
+            stringValue(str)
+            ));
+    freeString(str);
+}
+
+void isShouldCheckIfEmptyString() {
+    String s = newString("");
+    assert(isStringEmpty(s));
+    freeString(s);
+}
+
+void isShouldCreateFormattedString() {
+    String format = newString("%d %s %d");
+    string test = "test";
+    String formatted = newFormattedString(format, 1, test, 2);
+    assert(assertExpectedStringEqualsActual(
+            "1 test 2",
+            stringValue(formatted)
+            ));
+    freeString(format);
+    freeString(formatted);
 }
