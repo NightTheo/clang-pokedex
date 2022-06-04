@@ -21,7 +21,7 @@ void testValue(){
 
 void testLength(){
     String str = newString("12345");
-    assert( assertEqualsInt(stringLength(str), 5 ));
+    assert(assertExpectedIntEqualsActual(stringLength(str), 5));
     freeString(str);
 }
 

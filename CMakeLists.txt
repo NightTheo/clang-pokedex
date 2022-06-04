@@ -45,3 +45,11 @@ add_executable(
         src/exposition/adapter/cli.pokemon.adapter.test.c
         src/kernel/date/date.c src/kernel/date/date.h)
 add_test(NAME cli_pokemon_adapter_test COMMAND $<TARGET_FILE:cli_pokemon_adapter_test>)
+
+add_executable(
+        cli_pokemon_date_test
+        src/kernel/date/date.test.c
+        test/test.c test/test.h
+        src/kernel/date/date.h src/kernel/date/date.c
+)
+add_test(NAME cli_pokemon_date_test COMMAND $<TARGET_FILE:cli_pokemon_date_test>)

@@ -3,7 +3,7 @@
 #include "test.h"
 #include <stdio.h>
 
-bool assertEqualsInt(int expected, int actual) {
+bool assertExpectedIntEqualsActual(int expected, int actual) {
     if(expected != actual) {
         printf("\nFAIL: expected: %d, actual: %d", expected, actual);
     }
@@ -17,4 +17,18 @@ bool assertExpectedStringEqualsActual(char* expected, char* actual) {
         printf("\nactual: \n%s\n", actual);
     }
     return strcmp(expected,actual) == 0;
+}
+
+bool assertIsNull(void* var) {
+    if(NULL != var) {
+        printf("\nFAIL: pointer is NOT null\n");
+    }
+    return NULL == var;
+}
+
+bool assertIsNotNull(void* var) {
+    if(NULL == var) {
+        printf("\nFAIL: pointer IS null\n");
+    }
+    return NULL != var;
 }
