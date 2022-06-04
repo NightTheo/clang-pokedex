@@ -211,7 +211,7 @@ Salameche est dans mon Pokedex donc je l'affiche :
 
 Salameche x3
     Type Feu
-    Découvert la 1ère fois le 28 mai 2022
+    Découvert la première fois le 28 mai 2022
     Capturé la première fois le 28 mai 2022
 ```
 `NB: La case de la recherche est ignorée`

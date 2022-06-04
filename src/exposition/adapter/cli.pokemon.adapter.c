@@ -12,6 +12,15 @@ String adaptFirstCaptureDateForCliPokemonResponse(Date firstCaptureDate);
 //___
 
 
+/**
+ *
+ * @param pokemon
+ * \Exemple
+ * Salameche x3<br>
+ *     Type Feu<br>
+ *     Découvert la première fois le 28 mai 2022<br>
+ *     Capturé la première fois le 28 mai 2022
+ */
 String adaptToCliPokemonResponse(Pokemon pokemon) {
     String type = pokemonTypeToString(getPokemonType(pokemon));
     String firstSeenDate = adaptFirstSeenDateForCliPokemonResponse(getFirstSeenDateInPokemonDatasheet(pokemon));
@@ -29,6 +38,10 @@ String adaptToCliPokemonResponse(Pokemon pokemon) {
     );
     freeNString(3, type, firstSeenDate, firstCaptureDate);
     return formatted;
+}
+
+String adaptToCliPokemonNotFoundResponse(String name) {
+    return newFormattedString("'%s' n'est pas dans le Pokedex.", stringValue(name));
 }
 
 String adaptFirstSeenDateForCliPokemonResponse(Date firstSeenDate) {

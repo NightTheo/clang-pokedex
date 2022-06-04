@@ -65,7 +65,7 @@ int getLengthOfMonthInYear(Month month, int year) {
 }
 
 /**
- * @return array of int with the length of each month in COMMON year (28 days in february), using enum Month as index.
+ * @return array of int with the size of each month in COMMON year (28 days in february), using enum Month as index.
  * The enum Month starts at 1 so the first index is not used (value of -1).
  */
 int* getMonthsLengthInCommonYear() {
@@ -87,7 +87,7 @@ int* getMonthsLengthInCommonYear() {
 }
 
 /**
- * @return array of int with the length of each month in LEAP year (29 days in february), using enum Month as index.
+ * @return array of int with the size of each month in LEAP year (29 days in february), using enum Month as index.
  * The enum Month starts at 1 so the first index is not used (value of -1).
  */
 int* getMonthsLengthInLeapYear() {
@@ -113,7 +113,7 @@ bool yearIsLeap(int year) {
 void freeDate(Date date){
     free(date);
     date = NULL;
-};
+}
 
 int getYearOf(Date d) {
     return d->year;

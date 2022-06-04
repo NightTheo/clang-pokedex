@@ -10,11 +10,12 @@ Pokemon searchPokemonByName(String name) {
                 newDate(2022, MAY, 28),
                 newDate(2022, MAY, 28)
                 );
-    else
+    else if(strcmp(stringValue(name), "search pikachu") == 0)
         return newPokemon(newString("Pikachu"),
                           0,
                           Electric,
                           newDate(2022, MAY, 27),
                           NULL
                           );
+    else return NULL;
 }

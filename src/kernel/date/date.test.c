@@ -11,7 +11,7 @@ void itShouldNotCreateDateWithDaySuperiorThanMaxDayInJanuary();
 void itShouldNotCreateTheTwentyNinthFebruaryOfACommonYear();
 void itShouldNotCreateDateWithDaySuperiorThanMaxDayInApril();
 void itShouldCreateTheTwentyNinthFebruaryOfALeapYear();
-void itShouldCreateTheTwentyNinthFebruaryOfLeapYearsInList();
+void itShouldCreateTheTwentyNinthFebruaryOfListOfLeapYears();
 
 int main() {
 
@@ -23,7 +23,7 @@ int main() {
     itShouldNotCreateDateWithDaySuperiorThanMaxDayInApril();
     itShouldNotCreateTheTwentyNinthFebruaryOfACommonYear();
     itShouldCreateTheTwentyNinthFebruaryOfALeapYear();
-    itShouldCreateTheTwentyNinthFebruaryOfLeapYearsInList();
+    itShouldCreateTheTwentyNinthFebruaryOfListOfLeapYears();
 
     return 0;
 }
@@ -90,7 +90,7 @@ void itShouldCreateTheTwentyNinthFebruaryOfALeapYear() {
 }
 
 
-void itShouldCreateTheTwentyNinthFebruaryOfLeapYearsInList() {
+void itShouldCreateTheTwentyNinthFebruaryOfListOfLeapYears() {
     int years[20] = {
             1804,1816,1840,1864,1892,1924,1948,1972,1988,2012,
             2032,2068,2108,2180,2236,2268,2284,2352,2388,2400

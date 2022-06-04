@@ -5,12 +5,13 @@
 
 bool assertExpectedIntEqualsActual(int expected, int actual) {
     if(expected != actual) {
-        printf("\nFAIL: expected: %d, actual: %d", expected, actual);
+        printf("\nFAIL: expected: %d, actual: %d\n", expected, actual);
     }
     return expected == actual;
 }
 
 bool assertExpectedStringEqualsActual(char* expected, char* actual) {
+    if(!expected || !actual) return false;
     if(strcmp(expected,actual) != 0) {
         printf("\nFAIL");
         printf("\nexpected: \n%s\n", expected);

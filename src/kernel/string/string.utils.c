@@ -6,9 +6,16 @@
 #include <stdio.h>
 #include <stdarg.h>
 
+#include "split/split.h"
+
 struct String {
     string value;
     int16_t length;
+};
+
+struct StringArray {
+    String* array;
+    int16_t size;
 };
 
 String newString(string value) {
@@ -40,6 +47,7 @@ void freeNString(int numberOfStringToFree, ...) {
 }
 
 string stringValue(String str) {
+    if(!str) return NULL;
     return str->value;
 }
 
@@ -67,3 +75,55 @@ String newFormattedString(string format, ...) {
     va_end(args);
     return formatted;
 }
+
+StringArray split(String str, char delimiter) {
+    string* primitiveArray = NULL;
+    int size = split_primitive(stringValue(str), delimiter, &primitiveArray);
+
+    StringArray array = newEmptyStringArray();
+    for(int i = 0; i < size; i += 1)
+        pushStringInArray(newString(primitiveArray[i]), array);
+
+    for (int i = 0; i < size; i++) free (primitiveArray[i]);
+    free (primitiveArray);
+
+    return array;
+}
+
+String getStringInArrayAtIndex(StringArray array, int index) {
+    if(!array) return NULL;
+    bool indexOutOfBound = index < 0 || index >= array->size;
+    if(indexOutOfBound) return NULL;
+    return array->array[index];
+}
+
+void freeStringArray(StringArray array) {
+    for(int i = 0; i < array->size; i += 1)
+        freeString(getStringInArrayAtIndex(array, i));
+    free(array->array); array->array = NULL;
+    free(array); array = NULL;
+}
+
+StringArray newEmptyStringArray() {
+    StringArray emptyArray = malloc(sizeof(struct StringArray));
+    emptyArray->array = NULL;
+    emptyArray->size = 0;
+    return emptyArray;
+}
+
+void pushStringInArray(String string, StringArray array) {
+    int newIndex = array->size;
+    array->size += 1;
+    String* newArray = malloc(sizeof(String) * array->size);
+    for(int i = 0; i < newIndex; i += 1)
+        newArray[i] = array->array[i];
+    newArray[newIndex] = string;
+
+    if(array->array) free(array->array);
+    array->array = newArray;
+}
+
+int16_t getStringArraySize(StringArray array) {
+    return array->size;
+}
+

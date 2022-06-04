@@ -5,5 +5,6 @@
 #include "../../domain/pokemon.h"
 
 String adaptToCliPokemonResponse(Pokemon pokemon);
+String adaptToCliPokemonNotFoundResponse(String name);
 
 #endif //CLANG_POKEDEX_CLI_POKEMON_ADAPTER_H

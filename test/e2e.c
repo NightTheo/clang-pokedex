@@ -5,13 +5,15 @@
 
 void it_should_get_salameche();
 void it_should_get_pikachu();
+void it_should_not_find_mewtwo();
 
 int main() {
 
     it_should_get_salameche();
     it_should_get_pikachu();
+    it_should_not_find_mewtwo();
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 void it_should_get_salameche() {
@@ -27,8 +29,7 @@ void it_should_get_salameche() {
             stringValue(expectedOutput),
             stringValue(actualOutput)
     ));
-    freeString(actualOutput);
-    freeString(expectedOutput);
+    freeNString(2,expectedOutput, actualOutput);
 }
 
 
@@ -45,6 +46,16 @@ void it_should_get_pikachu() {
             stringValue(expectedOutput),
             stringValue(actualOutput)
     ));
-    freeString(actualOutput);
-    freeString(expectedOutput);
+    freeNString(2,expectedOutput, actualOutput);
+}
+
+void it_should_not_find_mewtwo() {
+    String actualOutput = cli("search mewtwo");
+    String expectedOutput = newString("'Mewto' n'est pas dans le Pokedex.");
+
+    assert(assertExpectedStringEqualsActual(
+            stringValue(expectedOutput),
+            stringValue(actualOutput)
+    ));
+    freeNString(2,expectedOutput, actualOutput);
 }
