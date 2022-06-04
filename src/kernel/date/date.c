@@ -112,6 +112,7 @@ bool yearIsLeap(int year) {
 
 void freeDate(Date date){
     free(date);
+    date = NULL;
 };
 
 int getYearOf(Date d) {

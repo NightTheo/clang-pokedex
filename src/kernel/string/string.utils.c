@@ -21,11 +21,22 @@ String newString(string value) {
     return string;
 }
 
-void freeString(String string) {
-    free(string->value);
-    string->value = NULL;
-    free(string);
-    string = NULL;
+void freeString(String s) {
+    free(s->value);
+    s->value = NULL;
+    free(s);
+    s = NULL;
+}
+
+void freeNString(int numberOfStringToFree, ...) {
+    va_list args;
+    va_start(args, numberOfStringToFree);
+    String current;
+    for(int i = 0; i < numberOfStringToFree; i += 1) {
+        current = (String) va_arg(args, String);
+        freeString(current);
+    }
+    va_end(args);
 }
 
 string stringValue(String str) {
@@ -44,12 +55,12 @@ bool isStringEmpty(String str) {
     return str->length == 0;
 }
 
-String newFormattedString(String format, ...) {
+String newFormattedString(string format, ...) {
     va_list args;
     va_start(args, format);
     string str = malloc(sizeof(char) * STRING_MAX_LENGTH);
 
-    vsprintf(str, stringValue(format), args);
+    vsprintf(str, format, args); // https://stackoverflow.com/a/621882
     String formatted = newString(str);
 
     free(str);

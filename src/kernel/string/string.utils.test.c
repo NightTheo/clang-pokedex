@@ -57,13 +57,11 @@ void isShouldCheckIfEmptyString() {
 }
 
 void isShouldCreateFormattedString() {
-    String format = newString("%d %s %d");
     string test = "test";
-    String formatted = newFormattedString(format, 1, test, 2);
+    String formatted = newFormattedString("%d %s %d", 1, test, 2);
     assert(assertExpectedStringEqualsActual(
             "1 test 2",
             stringValue(formatted)
             ));
-    freeString(format);
     freeString(formatted);
 }

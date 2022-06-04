@@ -30,6 +30,7 @@ void freePokemon(Pokemon pokemon) {
     freeDate(pokemon->firstSeenDate);
     freeDate(pokemon->firstCaptureDate);
     free(pokemon);
+    pokemon = NULL;
 }
 
 String getPokemonName(Pokemon pokemon) {

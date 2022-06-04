@@ -11,11 +11,12 @@ typedef struct String* String;
 
 String newString(string value);
 void freeString(String toFree);
+void freeNString(int numberOfStringToFree, ...);
 char* stringValue(String string);
 int16_t stringLength(String string);
 bool stringAreEquals(String str1, String str2);
 bool isStringEmpty(String str);
-String newFormattedString(String format, ...);
+String newFormattedString(string format, ...);
 
 
 
