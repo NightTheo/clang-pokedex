@@ -129,9 +129,17 @@ int16_t getStringArraySize(StringArray array) {
     return array->size;
 }
 
+String lowerCase(String s) {
+    String copy = newString(stringValue(s));
+    for(string value = stringValue(copy); *value != '\0'; value += 1)
+        *value = (char)tolower(*value);
+    return copy;
+}
+
 String titleCase(String str) {
-    char firstLetter = *stringValue(str);
-    string rest = stringValue(str)+1;
-    return newFormattedString("%c%s", toupper(firstLetter), rest);
+    String lower = lowerCase(str);
+    char* firstLetter = stringValue(lower);
+    *firstLetter = (char) toupper(*firstLetter);
+    return lower;
 }
 

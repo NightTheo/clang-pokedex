@@ -15,8 +15,10 @@ void isShouldCreateFormattedString();
 void itShouldPushInArray();
 void itShouldGetNullForIndexOutOfBoundInStringArray();
 void itShouldSplitString();
+void itShouldLowerCaseString();
 void itShouldTitleCaseString();
 void itShouldHaveNoDiffTitleCaseStringAlreadyInTitleCase();
+void itShouldTitleCaseCapitalWord();
 
 int main() {
 
@@ -30,8 +32,10 @@ int main() {
     itShouldPushInArray();
     itShouldGetNullForIndexOutOfBoundInStringArray();
     itShouldSplitString();
+    itShouldLowerCaseString();
     itShouldTitleCaseString();
     itShouldHaveNoDiffTitleCaseStringAlreadyInTitleCase();
+    itShouldTitleCaseCapitalWord();
 
     return EXIT_SUCCESS;
 }
@@ -124,6 +128,15 @@ void itShouldSplitString() {
     freeStringArray(array);
 }
 
+void itShouldLowerCaseString() {
+    String word = newString("To LoWeR CaSe");
+    String titled = lowerCase(word);
+
+    assert(assertExpectedStringEqualsActual("to lower case", stringValue(titled)));
+
+    freeNString(2, word, titled);
+}
+
 void itShouldTitleCaseString() {
     String word = newString("word");
     String titled = titleCase(word);
@@ -135,6 +148,15 @@ void itShouldTitleCaseString() {
 
 void itShouldHaveNoDiffTitleCaseStringAlreadyInTitleCase() {
     String word = newString("Word");
+    String titled = titleCase(word);
+
+    assert(assertExpectedStringEqualsActual("Word", stringValue(titled)));
+
+    freeNString(2, word, titled);
+}
+
+void itShouldTitleCaseCapitalWord() {
+    String word = newString("WORD");
     String titled = titleCase(word);
 
     assert(assertExpectedStringEqualsActual("Word", stringValue(titled)));

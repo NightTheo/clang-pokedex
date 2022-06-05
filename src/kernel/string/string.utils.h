@@ -18,6 +18,10 @@ int16_t stringLength(String string);
 bool stringAreEquals(String str1, String str2);
 bool isStringEmpty(String str);
 String newFormattedString(string format, ...);
+
+
+// Cases
+String lowerCase(String s);
 String titleCase(String str);
 
 StringArray newEmptyStringArray();
