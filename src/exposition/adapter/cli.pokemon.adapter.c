@@ -41,7 +41,13 @@ String adaptToCliPokemonResponse(Pokemon pokemon) {
 }
 
 String adaptToCliPokemonNotFoundResponse(String name) {
-    return newFormattedString("'%s' n'est pas dans le Pokedex.", stringValue(name));
+    String titledName = titleCase(name);
+    String formatted = newFormattedString(
+            "'%s' n'est pas dans le Pokedex.",
+            stringValue(titledName)
+            );
+    freeString(titledName);
+    return formatted;
 }
 
 String adaptFirstSeenDateForCliPokemonResponse(Date firstSeenDate) {

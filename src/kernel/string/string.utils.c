@@ -5,6 +5,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <ctype.h>
 
 #include "split/split.h"
 
@@ -84,7 +85,8 @@ StringArray split(String str, char delimiter) {
     for(int i = 0; i < size; i += 1)
         pushStringInArray(newString(primitiveArray[i]), array);
 
-    for (int i = 0; i < size; i++) free (primitiveArray[i]);
+    for (int i = 0; i < size; i++)
+        free (primitiveArray[i]);
     free (primitiveArray);
 
     return array;
@@ -125,5 +127,11 @@ void pushStringInArray(String string, StringArray array) {
 
 int16_t getStringArraySize(StringArray array) {
     return array->size;
+}
+
+String titleCase(String str) {
+    char firstLetter = *stringValue(str);
+    string rest = stringValue(str)+1;
+    return newFormattedString("%c%s", toupper(firstLetter), rest);
 }
 

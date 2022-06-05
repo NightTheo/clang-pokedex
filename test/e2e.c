@@ -51,7 +51,7 @@ void it_should_get_pikachu() {
 
 void it_should_not_find_mewtwo() {
     String actualOutput = cli("search mewtwo");
-    String expectedOutput = newString("'Mewto' n'est pas dans le Pokedex.");
+    String expectedOutput = newString("'Mewtwo' n'est pas dans le Pokedex.");
 
     assert(assertExpectedStringEqualsActual(
             stringValue(expectedOutput),

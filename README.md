@@ -233,7 +233,7 @@ Mewto n'est pas dans mon Pokedex donc j'affiche le message :
 
 'Mewto' n'est pas dans le Pokedex.
 ```
-`NB: Le nom est en Title case`
+`NB: Le nom est en Title Case`
 
 ### Update ###
 

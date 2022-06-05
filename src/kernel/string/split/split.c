@@ -1,6 +1,4 @@
 #include "split.h"
-
-#include <string.h>
 #include <stdlib.h>
 
 //https://stackoverflow.com/a/34957656

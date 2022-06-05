@@ -13,11 +13,12 @@ typedef struct StringArray* StringArray;
 String newString(string value);
 void freeString(String toFree);
 void freeNString(int numberOfStringToFree, ...);
-char* stringValue(String string);
+string stringValue(String string);
 int16_t stringLength(String string);
 bool stringAreEquals(String str1, String str2);
 bool isStringEmpty(String str);
 String newFormattedString(string format, ...);
+String titleCase(String str);
 
 StringArray newEmptyStringArray();
 int16_t getStringArraySize(StringArray array);

@@ -8,7 +8,7 @@ enable_testing()
 if(MSVC)
         set(app_compile_options "/W4 /WX")
 else()
-        set(app_compile_options "-Wall -Wextra -Wpedantic -Werror")
+        set(app_compile_options "-Wall")
 endif()
 
 add_executable(clang_pokedex
@@ -36,9 +36,10 @@ add_executable(
         src/application/pokedex.service.c src/application/pokedex.service.h
         src/exposition/adapter/cli.pokemon.adapter.c src/exposition/adapter/cli.pokemon.adapter.h
         src/kernel/date/date.h src/kernel/date/date.c
+        src/kernel/string/split/split.h src/kernel/string/split/split.c
         )
-
-target_compile_options(clang_pokedex_e2e PUBLIC ${app_compile_options})
+add_test(NAME clang_pokedex_e2e COMMAND $<TARGET_FILE:clang_pokedex_e2e>)
+#target_compile_options(clang_pokedex_e2e PUBLIC ${app_compile_options})
 
 
 # string_utils_test
@@ -59,7 +60,8 @@ add_executable(
         src/domain/pokemon.c src/domain/pokemon.h
         src/exposition/adapter/cli.pokemon.adapter.h src/exposition/adapter/cli.pokemon.adapter.c
         src/exposition/adapter/cli.pokemon.adapter.test.c
-        src/kernel/date/date.c src/kernel/date/date.h)
+        src/kernel/date/date.c src/kernel/date/date.h
+        src/kernel/string/split/split.h src/kernel/string/split/split.c)
 add_test(NAME cli_pokemon_adapter_test COMMAND $<TARGET_FILE:cli_pokemon_adapter_test>)
 
 

@@ -11,7 +11,7 @@ String cli(string input) {
 
     String pokemon = cliSearchPokemonByName(name);
 
-    freeNString(2, Input, name);
+    freeString(Input);
     freeStringArray(args);
     return pokemon;
 }

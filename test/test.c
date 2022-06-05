@@ -14,8 +14,8 @@ bool assertExpectedStringEqualsActual(char* expected, char* actual) {
     if(!expected || !actual) return false;
     if(strcmp(expected,actual) != 0) {
         printf("\nFAIL");
-        printf("\nexpected: \n%s\n", expected);
-        printf("\nactual: \n%s\n", actual);
+        printf("\nexpected: \n*%s*\n", expected);
+        printf("\nactual: \n*%s*\n", actual);
     }
     return strcmp(expected,actual) == 0;
 }

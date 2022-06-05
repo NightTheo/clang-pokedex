@@ -2,7 +2,7 @@
 #include "pokedex.service.h"
 
 Pokemon searchPokemonByName(String name) {
-    if(strcmp(stringValue(name), "search salameche") == 0)
+    if(strcmp(stringValue(name), "salameche") == 0)
         return newPokemon(
                 newString("Salameche"),
                 3,
@@ -10,7 +10,7 @@ Pokemon searchPokemonByName(String name) {
                 newDate(2022, MAY, 28),
                 newDate(2022, MAY, 28)
                 );
-    else if(strcmp(stringValue(name), "search pikachu") == 0)
+    else if(strcmp(stringValue(name), "pikachu") == 0)
         return newPokemon(newString("Pikachu"),
                           0,
                           Electric,

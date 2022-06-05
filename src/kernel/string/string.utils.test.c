@@ -15,8 +15,11 @@ void isShouldCreateFormattedString();
 void itShouldPushInArray();
 void itShouldGetNullForIndexOutOfBoundInStringArray();
 void itShouldSplitString();
+void itShouldTitleCaseString();
+void itShouldHaveNoDiffTitleCaseStringAlreadyInTitleCase();
 
 int main() {
+
     testLength();
     testValue();
     testStringsAreEquals();
@@ -27,6 +30,8 @@ int main() {
     itShouldPushInArray();
     itShouldGetNullForIndexOutOfBoundInStringArray();
     itShouldSplitString();
+    itShouldTitleCaseString();
+    itShouldHaveNoDiffTitleCaseStringAlreadyInTitleCase();
 
     return EXIT_SUCCESS;
 }
@@ -119,4 +124,20 @@ void itShouldSplitString() {
     freeStringArray(array);
 }
 
-// TODO test index of getStringInArrayAtIndex => return NULL if index < 0 or index >= array size
+void itShouldTitleCaseString() {
+    String word = newString("word");
+    String titled = titleCase(word);
+
+    assert(assertExpectedStringEqualsActual("Word", stringValue(titled)));
+
+    freeNString(2, word, titled);
+}
+
+void itShouldHaveNoDiffTitleCaseStringAlreadyInTitleCase() {
+    String word = newString("Word");
+    String titled = titleCase(word);
+
+    assert(assertExpectedStringEqualsActual("Word", stringValue(titled)));
+
+    freeNString(2, word, titled);
+}
