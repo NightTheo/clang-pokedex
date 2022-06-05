@@ -1,6 +1,8 @@
-#include "../src/exposition/cli.h"
 #include <assert.h>
 #include "../test/test.h"
+
+#include "../src/exposition/cli.h"
+#include "../src/application/pokedex.service.h"
 
 
 void it_should_get_salameche();
@@ -30,6 +32,7 @@ void it_should_get_salameche() {
             stringValue(actualOutput)
     ));
     freeNString(2,expectedOutput, actualOutput);
+    freePokedexInstance();
 }
 
 
@@ -47,6 +50,7 @@ void it_should_get_pikachu() {
             stringValue(actualOutput)
     ));
     freeNString(2,expectedOutput, actualOutput);
+    freePokedexInstance();
 }
 
 void it_should_not_find_mewtwo() {
@@ -58,4 +62,5 @@ void it_should_not_find_mewtwo() {
             stringValue(actualOutput)
     ));
     freeNString(2,expectedOutput, actualOutput);
+    freePokedexInstance();
 }

@@ -11,7 +11,7 @@ struct Pokedex {
 
 Pokedex newPokedex(Pokemon pokemon) {
     Pokedex p = malloc(sizeof(struct Pokedex));
-    p->pokemon = NULL;//pokemon;// clonePokemon(pokemon) ;
+    p->pokemon = clonePokemon(pokemon) ;
     p->next = NULL;
     return p;
 }
@@ -21,8 +21,8 @@ Pokemon getPokemonByNameInPokedex(String name, Pokedex pokedex) {
     Pokedex iterator = pokedex;
     Pokemon found = NULL;
     while(iterator != NULL) {
-        if(pokemonNameEquals(pokedex->pokemon, titleName)) {
-            found = clonePokemon(pokedex->pokemon);
+        if(pokemonNameEquals(iterator->pokemon, titleName)) {
+            found = clonePokemon(iterator->pokemon);
             break;
         }
         iterator = iterator->next;
@@ -33,19 +33,26 @@ Pokemon getPokemonByNameInPokedex(String name, Pokedex pokedex) {
 
 void freePokedex(Pokedex head) {
     if(!head) return;
-    free(head);
-    head = NULL;
-    /*
     Pokedex tmp;
     while(head != NULL) {
-        printf("POKEMON: "); printf("%s\n", stringValue(getPokemonName(head->pokemon)));
         tmp = head;
         freePokemon(tmp->pokemon);
         head = head->next;
         free(tmp);
-    }*/
+    }
 }
 
-Pokemon getCurrentPokemonInPokedex(Pokedex pokedex) {
+Pokemon getPokemonInStructPokedex(Pokedex pokedex) {
     return clonePokemon(pokedex->pokemon);
+}
+
+Pokedex pushPokemonInPokedex(Pokemon pokemon, Pokedex pokedex) {
+    Pokedex new = newPokedex(pokemon);
+    new->next = pokedex;
+    return new;
+}
+
+Pokedex getNextPokedex(Pokedex pokedex) {
+    if(!pokedex) return NULL;
+    return pokedex->next;
 }

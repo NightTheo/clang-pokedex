@@ -33,6 +33,8 @@ add_executable(
         src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         test/test.c test/test.h
         src/domain/pokemon/pokemon.c src/domain/pokemon/pokemon.h
+        src/domain/pokedex/pokedex.h src/domain/pokedex/pokedex.c
+        src/domain/pokedex.repository.h src/infrastructure/pokedex.in_memory.repository.c
         src/application/pokedex.service.c src/application/pokedex.service.h
         src/exposition/adapter/cli.pokemon.adapter.c src/exposition/adapter/cli.pokemon.adapter.h
         src/kernel/date/date.h src/kernel/date/date.c

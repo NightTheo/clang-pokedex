@@ -7,12 +7,11 @@
 
 void itShouldGetPokemonByName();
 void itShouldNotFoundPokemon();
-void itShouldFreePokedex();
 
 int main() {
 
-    //itShouldGetPokemonByName();
-    //itShouldNotFoundPokemon();
+    itShouldGetPokemonByName();
+    itShouldNotFoundPokemon();
 
     return EXIT_SUCCESS;
 }
@@ -36,4 +35,5 @@ void itShouldNotFoundPokemon() {
     assert(assertIsNull(found));
 
     freeString(name);
+    freePokedexInstance();
 }
