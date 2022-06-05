@@ -29,6 +29,10 @@ String newString(string value) {
     return string;
 }
 
+String stringCopy(String str) {
+    return newString(str->value);
+}
+
 void freeString(String s) {
     free(s->value);
     s->value = NULL;

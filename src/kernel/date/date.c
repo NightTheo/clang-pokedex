@@ -115,6 +115,15 @@ void freeDate(Date date){
     date = NULL;
 }
 
+Date dateCopy(Date d) {
+    if(!d) return NULL;
+    return newDate(
+            d->year,
+            d->month,
+            d->day
+            );
+}
+
 int getYearOf(Date d) {
     return d->year;
 }

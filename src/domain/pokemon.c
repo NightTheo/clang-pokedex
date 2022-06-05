@@ -52,3 +52,13 @@ Date getFirstSeenDateInPokemonDatasheet(Pokemon pokemon) {
 Date getFirstCaptureDateInPokemonDatasheet(Pokemon pokemon) {
     return pokemon->firstCaptureDate;
 }
+
+Pokemon clonePokemon(Pokemon pokemon) {
+    return newPokemon(
+            stringCopy(pokemon->name),
+            pokemon->numberCaptured,
+            pokemon->type,
+            dateCopy(pokemon->firstSeenDate),
+            dateCopy(pokemon->firstCaptureDate)
+            );
+}

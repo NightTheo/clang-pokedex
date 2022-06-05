@@ -84,3 +84,17 @@ add_executable(
         test/test.c test/test.h
 )
 add_test(NAME split_test COMMAND $<TARGET_FILE:split_test>)
+
+
+# pokedex_service_test
+add_executable(
+        pokedex_service_test
+        src/application/pokedex.service.test.c
+        test/test.c test/test.h
+        src/domain/pokemon.h src/domain/pokemon.c
+        src/application/pokedex.service.h src/application/pokedex.service.c
+        src/kernel/string/string.utils.c src/kernel/string/string.utils.h
+        src/kernel/string/split/split.h src/kernel/string/split/split.c
+        src/kernel/date/date.h src/kernel/date/date.c
+)
+add_test(NAME pokedex_service_test COMMAND $<TARGET_FILE:pokedex_service_test>)

@@ -9,7 +9,8 @@ typedef struct Pokemon* Pokemon;
 typedef enum PokemonType{
     None,
     Fire,
-    Electric
+    Electric,
+    Flying
 } PokemonType;
 
 Pokemon newPokemon(
@@ -18,6 +19,7 @@ Pokemon newPokemon(
         PokemonType type,
         Date firstSeenDate,
         Date firstCaptureDate);
+Pokemon clonePokemon(Pokemon pokemon);
 String getPokemonName(Pokemon pokemon);
 PokemonType getPokemonType(Pokemon pokemon);
 int getNumberOfPokemonCapturedInPokemonDatasheet(Pokemon pokemon);

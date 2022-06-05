@@ -11,6 +11,7 @@ typedef struct String* String;
 typedef struct StringArray* StringArray;
 
 String newString(string value);
+String stringCopy(String str);
 void freeString(String toFree);
 void freeNString(int numberOfStringToFree, ...);
 string stringValue(String string);

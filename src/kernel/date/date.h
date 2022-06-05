@@ -18,6 +18,7 @@ typedef enum Month {
 } Month;
 Date newDate(int year, Month month, int day);
 void freeDate(Date date);
+Date dateCopy(Date d);
 
 int getYearOf(Date d);
 Month getMonthOf(Date d);

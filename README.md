@@ -11,6 +11,7 @@ Idées d'amélioration
 - Avoir un adapter générique
 - Types dans agréggat : PokemonName, FirstSeenDate, FistCaptureDate
 - Avoir un module de langue pour ne plus avoir de français dans l'adapter
+- CMake library du kernel
 
 ## Use cases ##
 
