@@ -16,7 +16,7 @@ add_executable(clang_pokedex
         src/exposition/cli.c src/exposition/cli.h
         src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         src/application/pokedex.service.c src/application/pokedex.service.h
-        src/domain/pokemon.c src/domain/pokemon.h
+        src/domain/pokemon/pokemon.c src/domain/pokemon/pokemon.h
         src/exposition/adapter/cli.pokemon.adapter.c src/exposition/adapter/cli.pokemon.adapter.h
         src/kernel/date/date.c src/kernel/date/date.h src/kernel/string/split/split.c src/kernel/string/split/split.h)
 
@@ -32,7 +32,7 @@ add_executable(
         src/exposition/cli.c src/exposition/cli.h
         src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         test/test.c test/test.h
-        src/domain/pokemon.c src/domain/pokemon.h
+        src/domain/pokemon/pokemon.c src/domain/pokemon/pokemon.h
         src/application/pokedex.service.c src/application/pokedex.service.h
         src/exposition/adapter/cli.pokemon.adapter.c src/exposition/adapter/cli.pokemon.adapter.h
         src/kernel/date/date.h src/kernel/date/date.c
@@ -57,7 +57,7 @@ add_executable(
         cli_pokemon_adapter_test
         test/test.c test/test.h
         src/kernel/string/string.utils.c src/kernel/string/string.utils.h
-        src/domain/pokemon.c src/domain/pokemon.h
+        src/domain/pokemon/pokemon.c src/domain/pokemon/pokemon.h
         src/exposition/adapter/cli.pokemon.adapter.h src/exposition/adapter/cli.pokemon.adapter.c
         src/exposition/adapter/cli.pokemon.adapter.test.c
         src/kernel/date/date.c src/kernel/date/date.h
@@ -91,10 +91,37 @@ add_executable(
         pokedex_service_test
         src/application/pokedex.service.test.c
         test/test.c test/test.h
-        src/domain/pokemon.h src/domain/pokemon.c
+        src/domain/pokemon/pokemon.h src/domain/pokemon/pokemon.c
+        src/domain/pokedex/pokedex.h src/domain/pokedex/pokedex.c
         src/application/pokedex.service.h src/application/pokedex.service.c
         src/kernel/string/string.utils.c src/kernel/string/string.utils.h
         src/kernel/string/split/split.h src/kernel/string/split/split.c
         src/kernel/date/date.h src/kernel/date/date.c
+        src/domain/pokedex.repository.h src/infrastructure/pokedex.in_memory.repository.c
 )
 add_test(NAME pokedex_service_test COMMAND $<TARGET_FILE:pokedex_service_test>)
+
+# pokemon_test
+add_executable(
+        pokemon_test
+        src/domain/pokemon/pokemon.test.c
+        test/test.c test/test.h
+        src/domain/pokemon/pokemon.h src/domain/pokemon/pokemon.c
+        src/kernel/string/string.utils.c src/kernel/string/string.utils.h
+        src/kernel/string/split/split.h src/kernel/string/split/split.c
+        src/kernel/date/date.h src/kernel/date/date.c
+)
+add_test(NAME pokemon_test COMMAND $<TARGET_FILE:pokemon_test>)
+
+# pokedex_test
+add_executable(
+        pokedex_test
+        src/domain/pokedex/pokedex.test.c
+        test/test.c test/test.h
+        src/domain/pokemon/pokemon.h src/domain/pokemon/pokemon.c
+        src/domain/pokedex/pokedex.h src/domain/pokedex/pokedex.c
+        src/kernel/string/string.utils.c src/kernel/string/string.utils.h
+        src/kernel/string/split/split.h src/kernel/string/split/split.c
+        src/kernel/date/date.h src/kernel/date/date.c
+)
+add_test(NAME pokedex_test COMMAND $<TARGET_FILE:pokedex_test>)

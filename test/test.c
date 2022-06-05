@@ -33,3 +33,13 @@ bool assertIsNotNull(void* var) {
     }
     return NULL != var;
 }
+
+bool assertIsTrue(bool var) {
+    if(var != true) printf("\nFAIL: expected true, got FALSE\n");
+    return var == true;
+}
+
+bool assertIsFalse(bool var) {
+    if(var != false) printf("\nFAIL: expected false, got TRUE\n");
+    return var == false;
+}

@@ -20,7 +20,7 @@ struct StringArray {
 };
 
 String newString(string value) {
-    if(!value) return newString("");
+    if(value == NULL) return newString("");
 
     String string = malloc(sizeof(struct String));
     string->length = strlen(value);

@@ -1,10 +1,13 @@
-# clang-pokedex #
+# clang-POKEDEX #
 
 ## TODO ##
 
 - Renommer pokemon.h en pokemon_datasheet
 - Avoir un builder pour ce PokemonDatasheet
   - Parce que Les deux dates possiblement nulles
+- Structures de PokedexService & Repo avec pt de func sur méthodes
+  - newPokedexService
+  - newPokedexRepository
 
 Idées d'amélioration
 - Faire des UseCases en CQS
@@ -21,14 +24,14 @@ Idées d'amélioration
 
 ##### 1.1. Pour la première fois #####
 
-Contexte : mon pokedex est vide, je n'est jamais vu ni capturé de pokemon. 
+Contexte : mon POKEDEX est vide, je n'est jamais vu ni capturé de pokemon. 
 Nous sommes le 27 mai 2022.
 
 ```bash
 $ i saw pikachu
 ```
 Le pokemon Pikachu est ajouté à mon Pokedex eet la date de première découverte vaut la date d'aujourd'hui
-Mon pokedex possède maintenant 1 pokemon :
+Mon POKEDEX possède maintenant 1 pokemon :
 - Pikachu
   - Type electrique
   - Découvert la 1ère fois le 27 mai 2022
@@ -37,14 +40,14 @@ Mon pokedex possède maintenant 1 pokemon :
 
 ##### 1.2. Pour la deuxième fois #####
 
-Contexte : mon pokedex a 1 pokemon: Pikachu qui a déjà été vu le 27 mai 2022.
+Contexte : mon POKEDEX a 1 pokemon: Pikachu qui a déjà été vu le 27 mai 2022.
 Nous sommes le 29 mai 2022.
 
 ```bash
 $ i saw pikachu
 ```
 Rien n'est modifié car la date de première capture est déjà renseignée
-mon pokedex n'a pas changé:
+mon POKEDEX n'a pas changé:
 
 - Pikachu
   - Type electrique
@@ -54,7 +57,7 @@ mon pokedex n'a pas changé:
 
 ##### 1.3. Voir un pokemon qui n'existe pas #####
 
-Contexte : mon pokedex est vide, je n'est jamais vu ni capturé de pokemon. 
+Contexte : mon POKEDEX est vide, je n'est jamais vu ni capturé de pokemon. 
 
 ```bash
 $ i saw not_a_pokemon
@@ -71,7 +74,7 @@ Le message d'erreur :
 
 ##### 2.1. Pour la première fois #####
 
-Contexte : mon pokedex est vide, je n'est jamais vu ni capturé de pokemon.
+Contexte : mon POKEDEX est vide, je n'est jamais vu ni capturé de pokemon.
 Nous sommes le 27 mai 2022.
 
 ```bash
@@ -80,7 +83,7 @@ $ i captured salameche
 
 Le Pokemon Salameche est ajouté a mon Pokedex, le nombre de capture est de 1, 
 sa date de 1ère découverte et de 1ère capture vaut la date d'aujourd'hui.
-Mon pokedex possède maintenant 1 pokemon :
+Mon POKEDEX possède maintenant 1 pokemon :
 
 - Salameche
   - Type feu
@@ -90,7 +93,7 @@ Mon pokedex possède maintenant 1 pokemon :
 
 ##### 2.2. Pour la deuxième fois #####
 
-Contexte : mon pokedex a 1 pokemon: Salameche qui a déjà été capturé le 27 mai 2022.
+Contexte : mon POKEDEX a 1 pokemon: Salameche qui a déjà été capturé le 27 mai 2022.
 Nous sommes le 29 mai 2022.
 
 ```bash
@@ -98,7 +101,7 @@ $ i captured salameche
 ```
 
 Le nombre de Salameche que je possède est incrémenté de 1, il vaut maintenant 2.
-Mon pokedex possède 1 pokemon :
+Mon POKEDEX possède 1 pokemon :
 
 - Salameche
   - Type feu
@@ -109,9 +112,9 @@ Mon pokedex possède 1 pokemon :
 
 ##### 2.3. Qui n'avait été que vu #####
 
-Contexte : mon pokedex a 1 pokemon: Salameche qui a déjà été vu le 27 mai 2022.
+Contexte : mon POKEDEX a 1 pokemon: Salameche qui a déjà été vu le 27 mai 2022.
 Nous sommes le 29 mai 2022.
-pokedex:
+POKEDEX:
 - Salameche
   - Type feu
   - Découvert la 1ère fois le 27 mai 2022
@@ -122,7 +125,7 @@ $ i captured salameche
 ```
 
 Le nombre de Salameche que je possède est incrémenté de 1, il vaut maintenant 2.
-Mon pokedex possède 1 pokemon :
+Mon POKEDEX possède 1 pokemon :
 
 - Salameche
   - Type feu
@@ -136,13 +139,13 @@ Mon pokedex possède 1 pokemon :
 
 ##### 3.1. Afficher tout le Pokedex #####
 
-Contexte : mon pokedex contient 3 Pokemons: 
+Contexte : mon POKEDEX contient 3 Pokemons: 
 - Pikachu qui a été vu le 27 mai 2022.
 - 3 Salameche, le 1er a été capturé le 28 mai 2022.
 - 1 Roucool qui a été vu le 27 mai 2022 et capturé de 29 mai 2022.
 
 ```bash
-$ display pokedex
+$ display POKEDEX
 ```
 
 doit afficher :
@@ -175,7 +178,7 @@ Contexte : mon Pokedex contient 3 Pokemons:
 - 1 Roucool qui a été vu le 27 mai 2022 et capturé de 29 mai 2022.
 
 ```bash
-$ display pokedex captured
+$ display POKEDEX captured
 ```
 
 doit afficher le Pokedex sans pikachu qui n'a pas été capturé :
@@ -257,7 +260,7 @@ Affiche le message d'erreur :
 'Not_a_pokemon' n'est pas un Pokemon connu du Pokedex.
 ```
 
-##### 5.1.2. Le Pokemon à renommer n'est pas dans mon pokedex #####
+##### 5.1.2. Le Pokemon à renommer n'est pas dans mon POKEDEX #####
 
 Contexte : mon Pokedex est vide, je n'est jamais vu ni capturé de pokemon. 
 

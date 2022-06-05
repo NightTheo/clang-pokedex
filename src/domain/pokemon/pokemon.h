@@ -1,8 +1,8 @@
 #ifndef CLANG_POKEDEX_POKEMON_H
 #define CLANG_POKEDEX_POKEMON_H
 
-#include "../kernel/string/string.utils.h"
-#include "../kernel/date/date.h"
+#include "../../kernel/string/string.utils.h"
+#include "../../kernel/date/date.h"
 
 // TODO renommer en PokemonDatasheet
 typedef struct Pokemon* Pokemon;
@@ -25,6 +25,8 @@ PokemonType getPokemonType(Pokemon pokemon);
 int getNumberOfPokemonCapturedInPokemonDatasheet(Pokemon pokemon);
 Date getFirstSeenDateInPokemonDatasheet(Pokemon pokemon);
 Date getFirstCaptureDateInPokemonDatasheet(Pokemon pokemon);
+
+bool pokemonNameEquals(Pokemon pokemon, String compared);
 
 void freePokemon(Pokemon pokemon);
 

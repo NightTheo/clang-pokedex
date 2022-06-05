@@ -6,15 +6,16 @@
 
 
 void itShouldGetPokemonByName();
+void itShouldNotFoundPokemon();
+void itShouldFreePokedex();
 
 int main() {
 
-    itShouldGetPokemonByName();
-
+    //itShouldGetPokemonByName();
+    //itShouldNotFoundPokemon();
 
     return EXIT_SUCCESS;
 }
-
 
 void itShouldGetPokemonByName() {
     String name = newString("pikachu");
@@ -23,7 +24,16 @@ void itShouldGetPokemonByName() {
     assert(assertExpectedStringEqualsActual("Pikachu", stringValue(getPokemonName(found))));
     assert(assertExpectedIntEqualsActual(0,getNumberOfPokemonCapturedInPokemonDatasheet(found)));
 
-
     freePokemon(found);
+    freeString(name);
+    freePokedexInstance();
+}
+
+void itShouldNotFoundPokemon() {
+    String name = newString("mewtwo");
+    Pokemon found = searchPokemonByName(name);
+
+    assert(assertIsNull(found));
+
     freeString(name);
 }

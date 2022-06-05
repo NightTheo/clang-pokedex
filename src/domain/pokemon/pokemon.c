@@ -26,6 +26,7 @@ Pokemon newPokemon(
 }
 
 void freePokemon(Pokemon pokemon) {
+    if(!pokemon) return;
     freeString(pokemon->name);
     freeDate(pokemon->firstSeenDate);
     freeDate(pokemon->firstCaptureDate);
@@ -34,6 +35,7 @@ void freePokemon(Pokemon pokemon) {
 }
 
 String getPokemonName(Pokemon pokemon) {
+    if(!pokemon) return NULL;
     return pokemon->name;
 }
 
@@ -62,3 +64,10 @@ Pokemon clonePokemon(Pokemon pokemon) {
             dateCopy(pokemon->firstCaptureDate)
             );
 }
+
+bool pokemonNameEquals(Pokemon pokemon, String compared) {
+    if(!pokemon || !compared) return false;
+    return stringAreEquals(getPokemonName(pokemon), compared);
+}
+
+

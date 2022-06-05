@@ -111,6 +111,7 @@ bool yearIsLeap(int year) {
 }
 
 void freeDate(Date date){
+    if(!date) return;
     free(date);
     date = NULL;
 }

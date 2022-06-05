@@ -2,7 +2,7 @@
 #define CLANG_POKEDEX_CLI_H
 
 #include "../kernel/string/string.utils.h"
-#include "../domain/pokemon.h"
+#include "../domain/pokemon/pokemon.h"
 
 String cli(string input);
 String cliSearchPokemonByName(String name);
